@@ -14,13 +14,9 @@ use Mattmangoni\NovaBlogifyTool\Bootstrap\Blogify;
 | by your tool's "Authorize" middleware by default. Now, go build!
 |
 */
-
-Route::get('/check-migrations', function (Request $request) {
-    return response()->json([
-        'installed' => Blogify::isInstalled(),
-    ], 200);
+Route::get('/check-installation', function () {
+    return response()->json(['installation_status' => Blogify::isInstalled()], 200);
 });
 
-Route::get('/migrate-tables', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\MigrationController@execute');
-Route::get('/reset-content', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\ResetController@execute');
-Route::get('/uninstall', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\UninstallController@execute');
+
+Route::delete('/reset-content', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\ResetController@execute');

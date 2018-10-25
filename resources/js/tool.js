@@ -4,6 +4,6 @@ Nova.booting((Vue, router) => {
             name: 'nova-blogify-tool',
             path: '/nova-blogify-tool',
             component: require('./components/Tool'),
-        }
-    ]);
-});
+        },
+    ])
+})

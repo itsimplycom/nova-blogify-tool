@@ -262,99 +262,40 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            installed: null,
-            messages: [],
-            error: false
-        };
+  mounted: function mounted() {
+    this.checkInstallation();
+  },
+  data: function data() {
+    return {
+      installed: false
+    };
+  },
+
+  methods: {
+    checkInstallation: function checkInstallation() {
+      var _this = this;
+
+      Nova.request().get("/nova-vendor/nova-blogify-tool/check-installation").then(function (response) {
+        return _this.installed = response.data.installation_status;
+      }).catch(function () {
+        return _this.installed = false;
+      });
     },
-    mounted: function mounted() {
-        this.installationCheck();
-    },
+    resetInstallation: function resetInstallation() {
+      var _this2 = this;
 
+      confirm("Are you sure? This will delete all your blog content!");
 
-    methods: {
-        installationCheck: function installationCheck() {
-            var _this = this;
-
-            Nova.request().get("/nova-vendor/nova-blogify-tool/check-migrations").then(function (response) {
-                return _this.installed = response.data.installed;
-            }).catch(function () {
-                return _this.error = true;
-            });
-        },
-        install: function install() {
-            var _this2 = this;
-
-            Nova.request().get("/nova-vendor/nova-blogify-tool/migrate-tables").then(function (response) {
-                return _this2.messages = response.data.messages;
-            }).then(function () {
-                return _this2.reloadPage();
-            }).then(function () {
-                return _this2.installationCheck();
-            }).catch(function (error) {
-                return _this2.error = true;
-            });
-        },
-        resetContent: function resetContent() {
-            var _this3 = this;
-
-            this.resetMessages();
-
-            Nova.request().get("/nova-vendor/nova-blogify-tool/reset-content").then(function (response) {
-                return _this3.messages = response.data.messages;
-            }).then(function () {
-                setTimeout(function () {
-                    _this3.messages = [];
-                }, 2000);
-            }).catch(function (error) {
-                return _this3.error = true;
-            });
-        },
-        deleteTables: function deleteTables() {
-            var _this4 = this;
-
-            this.resetMessages();
-
-            Nova.request().get("/nova-vendor/nova-blogify-tool/uninstall").then(function (response) {
-                return _this4.messages = response.data.messages;
-            }).then(function () {
-                return _this4.reloadPage();
-            }).catch(function (error) {
-                return _this4.error = true;
-            });
-        },
-        resetMessages: function resetMessages() {
-            this.messages = [];
-        },
-        reloadPage: function reloadPage() {
-            setTimeout(function () {
-                window.location.reload();
-            }, 1000);
-        }
+      Nova.request().delete("/nova-vendor/nova-blogify-tool/reset-content").then(function (response) {
+        _this2.$toasted.show(response.data.message, { type: "success" });
+        _this2.checkInstallation();
+      }).catch(function (error) {
+        _this2.$toasted.show(error.response.data.message, { type: "error" });
+      });
     }
+  }
 });
 
 /***/ }),
@@ -368,98 +309,47 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("heading", { staticClass: "mb-6" }, [_vm._v("Blogify")]),
+      _c("heading", { staticClass: "mb-6" }, [_vm._v("Blogify dashboard.")]),
       _vm._v(" "),
       _c(
         "card",
+        {
+          staticClass: "flex flex-col items-center justify-center bg-90 text-20"
+        },
         [
-          _vm.messages.length !== 0
-            ? [
-                _c("div", { staticClass: "px-4 py-4 " }, [
-                  _c(
-                    "div",
-                    {
-                      staticClass:
-                        "mx-2 my-2 px-6 py-8 relative bg-80 text-20 rounded-lg"
-                    },
-                    [
-                      _c(
-                        "div",
-                        { staticClass: "absolute pin-t pin-r mr-2 mt-2 pr-1" },
-                        [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "text-20 font-bold",
-                              on: { click: _vm.resetMessages }
-                            },
-                            [_c("strong", [_vm._v("X")])]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._l(_vm.messages, function(message, index) {
-                        return _c("div", { key: index }, [
-                          _c("p", [_vm._v(_vm._s(message))])
-                        ])
-                      })
-                    ],
-                    2
-                  )
-                ])
-              ]
-            : _vm._e(),
+          _c("h1", { staticClass: "text-4xl font-light mt-6 mb-2" }, [
+            _vm._v("Blogify")
+          ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "px-6 py-8 text-80" },
-            [
-              _vm.installed
-                ? [
-                    _c("h4", { staticClass: "mb-4" }, [
-                      _vm._v("Blogify is currently installed and active.")
-                    ]),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-default btn-danger",
-                        on: { click: _vm.deleteTables }
-                      },
-                      [_vm._v("Uninstall and delete blog tables")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "btn btn-default bg-80 text-20 font-normal",
-                        on: { click: _vm.resetContent }
-                      },
-                      [_vm._v("Reset blog content")]
-                    )
-                  ]
-                : [
-                    _c("p", [
-                      _c("span", { staticClass: "pr-4" }, [
-                        _vm._v("Blogify DB tables not found.")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-default btn-primary",
-                          on: { click: _vm.install }
-                        },
-                        [_vm._v("Install")]
-                      )
-                    ])
-                  ]
-            ],
-            2
-          )
-        ],
-        2
+          !_vm.installed
+            ? _c("div", { staticClass: "mb-8" }, [
+                _c(
+                  "p",
+                  {
+                    staticClass:
+                      "flex justify-center text-center btn btn-danger px-6 py-2 rounded"
+                  },
+                  [_vm._v("Some tables are missing")]
+                ),
+                _vm._v(" "),
+                _c("p", { staticClass: "mt-6 text-center" }, [
+                  _c("code", [
+                    _vm._v("Run `php artisan migrate` to start blogging")
+                  ])
+                ])
+              ])
+            : _c("div", { staticClass: "mb-8" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass:
+                      "flex justify-center text-center btn btn-danger px-6 py-2 rounded",
+                    on: { click: _vm.resetInstallation }
+                  },
+                  [_vm._v("Reset blog content")]
+                )
+              ])
+        ]
       )
     ],
     1
