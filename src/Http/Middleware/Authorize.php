@@ -1,8 +1,8 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Http\Middleware;
+namespace Its\NovaBlogifyTool\Http\Middleware;
 
-use Mattmangoni\NovaBlogifyTool\NovaBlogifyTool;
+use Its\NovaBlogifyTool\NovaBlogifyTool;
 
 class Authorize
 {

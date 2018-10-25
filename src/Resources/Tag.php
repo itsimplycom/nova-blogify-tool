@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Resources;
+namespace Its\NovaBlogifyTool\Resources;
 
 use App\Nova\Resource;
 use Its\Nova\Translatable\Translatable;
@@ -16,7 +16,7 @@ class Tag extends Resource {
 	 * The model the resource corresponds to.
 	 * @var string
 	 */
-	public static $model = 'Mattmangoni\NovaBlogifyTool\Models\Tag';
+	public static $model = 'Its\NovaBlogifyTool\Models\Tag';
 
 	/**
 	 * The single value that should be used to represent the resource when being displayed.

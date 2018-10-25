@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool;
+namespace Its\NovaBlogifyTool;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Tool;

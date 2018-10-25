@@ -1,10 +1,10 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Http\Controllers;
+namespace Its\NovaBlogifyTool\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
-use Mattmangoni\NovaBlogifyTool\BlogifyResponder;
+use Its\NovaBlogifyTool\BlogifyResponder;
 
 class ResetController extends BlogifyBaseController
 {

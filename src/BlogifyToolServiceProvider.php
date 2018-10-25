@@ -1,11 +1,11 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool;
+namespace Its\NovaBlogifyTool;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Mattmangoni\NovaBlogifyTool\Bootstrap\Blogify;
-use Mattmangoni\NovaBlogifyTool\Http\Middleware\Authorize;
+use Its\NovaBlogifyTool\Bootstrap\Blogify;
+use Its\NovaBlogifyTool\Http\Middleware\Authorize;
 
 class BlogifyToolServiceProvider extends ServiceProvider
 {

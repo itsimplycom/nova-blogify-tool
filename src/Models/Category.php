@@ -1,10 +1,10 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Models;
+namespace Its\NovaBlogifyTool\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
-use Mattmangoni\NovaBlogifyTool\Traits\Sluggable;
+use Its\NovaBlogifyTool\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model {
@@ -15,7 +15,7 @@ class Category extends Model {
 	}
 
 
-	public $translationModel = 'Mattmangoni\NovaBlogifyTool\Models\CategoryTranslation';
+	public $translationModel = 'Its\NovaBlogifyTool\Models\CategoryTranslation';
 
 	/**
 	 * Model translated fields.

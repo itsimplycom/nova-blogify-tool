@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool;
+namespace Its\NovaBlogifyTool;
 
 class BlogifyResponder
 {

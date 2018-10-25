@@ -1,5 +1,5 @@
 {
-    "name": "mattmangoni/nova-blogify-tool",
+    "name": "itsimplycom/nova-blogify-tool",
     "description": "Create a simple blogging system inside Laravel Nova in one click",
     "keywords": [
         "laravel",
@@ -16,15 +16,21 @@
         "spatie/laravel-medialibrary": "^7.5",
         "itsimplycom/nova-translatable": "dev-develop"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../ywd_nova-translatable"
+        }
+    ],
     "autoload": {
         "psr-4": {
-            "Mattmangoni\\NovaBlogifyTool\\": "src/"
+            "Its\\NovaBlogifyTool\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Mattmangoni\\NovaBlogifyTool\\BlogifyToolServiceProvider"
+                "Its\\NovaBlogifyTool\\BlogifyToolServiceProvider"
             ]
         }
     },

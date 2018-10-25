@@ -1,10 +1,10 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Metrics\Posts;
+namespace Its\NovaBlogifyTool\Metrics\Posts;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Trend;
-use Mattmangoni\NovaBlogifyTool\Models\Post;
+use Its\NovaBlogifyTool\Models\Post;
 
 class PostsTrend extends Trend
 {

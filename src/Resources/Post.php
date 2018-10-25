@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Resources;
+namespace Its\NovaBlogifyTool\Resources;
 
 use App\Nova\Resource;
 use Its\Nova\Translatable\Translatable;
@@ -15,8 +15,8 @@ use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
 use Kingsley\NovaMediaLibrary\Fields\Image;
-use Mattmangoni\NovaBlogifyTool\Metrics\Posts\NewPosts;
-use Mattmangoni\NovaBlogifyTool\Metrics\Posts\PostsTrend;
+use Its\NovaBlogifyTool\Metrics\Posts\NewPosts;
+use Its\NovaBlogifyTool\Metrics\Posts\PostsTrend;
 
 class Post extends Resource
 {
@@ -24,7 +24,7 @@ class Post extends Resource
      * The model the resource corresponds to.
      * @var string
      */
-    public static $model = 'Mattmangoni\NovaBlogifyTool\Models\Post';
+    public static $model = 'Its\NovaBlogifyTool\Models\Post';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

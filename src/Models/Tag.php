@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Models;
+namespace Its\NovaBlogifyTool\Models;
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
@@ -14,7 +14,7 @@ class Tag extends Model {
 		return config( 'nova-blogify.table_prefix' ) . parent::getTable();
 	}
 
-	public $translationModel = 'Mattmangoni\NovaBlogifyTool\Models\TagTranslation';
+	public $translationModel = 'Its\NovaBlogifyTool\Models\TagTranslation';
 
 	/**
 	 * Fillable properties.

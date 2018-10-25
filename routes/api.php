@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use Mattmangoni\NovaBlogifyTool\Bootstrap\Blogify;
+use Its\NovaBlogifyTool\Bootstrap\Blogify;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +19,4 @@ Route::get('/check-installation', function () {
 });
 
 
-Route::delete('/reset-content', 'Mattmangoni\NovaBlogifyTool\Http\Controllers\ResetController@execute');
+Route::delete('/reset-content', 'Its\NovaBlogifyTool\Http\Controllers\ResetController@execute');

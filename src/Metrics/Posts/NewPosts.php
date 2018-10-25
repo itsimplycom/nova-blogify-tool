@@ -1,10 +1,10 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Metrics\Posts;
+namespace Its\NovaBlogifyTool\Metrics\Posts;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Metrics\Value;
-use Mattmangoni\NovaBlogifyTool\Models\Post;
+use Its\NovaBlogifyTool\Models\Post;
 
 class NewPosts extends Value
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Models;
+namespace Its\NovaBlogifyTool\Models;
 
 use Dimsav\Translatable\Translatable;
 use Spatie\MediaLibrary\File;
@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Mattmangoni\NovaBlogifyTool\Traits\Sluggable;
+use Its\NovaBlogifyTool\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,7 +22,7 @@ class Post extends Model implements HasMedia {
 	}
 
 
-	public $translationModel = 'Mattmangoni\NovaBlogifyTool\Models\PostTranslation';
+	public $translationModel = 'Its\NovaBlogifyTool\Models\PostTranslation';
 
 	/**
 	 * Fillable properties.

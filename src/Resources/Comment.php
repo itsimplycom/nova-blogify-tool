@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Resources;
+namespace Its\NovaBlogifyTool\Resources;
 
 use App\Nova\Resource;
 use Laravel\Nova\Fields\ID;
@@ -14,7 +14,7 @@ class Comment extends Resource
      * The model the resource corresponds to.
      * @var string
      */
-    public static $model = 'Mattmangoni\NovaBlogifyTool\Models\Comment';
+    public static $model = 'Its\NovaBlogifyTool\Models\Comment';
 
     /**
      * The single value that should be used to represent the resource when being displayed.

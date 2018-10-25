@@ -1,7 +1,7 @@
 # Nova Blogify Tool
 
-[![Latest Stable Version](https://poser.pugx.org/mattmangoni/nova-blogify-tool/v/stable)](https://packagist.org/packages/mattmangoni/nova-blogify-tool) 
-[![Total Downloads](https://poser.pugx.org/mattmangoni/nova-blogify-tool/downloads)](https://packagist.org/packages/mattmangoni/nova-blogify-tool) 
+[![Latest Stable Version](https://poser.pugx.org/itsimplycom/nova-blogify-tool/v/stable)](https://packagist.org/packages/itsimplycom/nova-blogify-tool) 
+[![Total Downloads](https://poser.pugx.org/itsimplycom/nova-blogify-tool/downloads)](https://packagist.org/packages/itsimplycom/nova-blogify-tool) 
 [![StyleCI](https://github.styleci.io/repos/146213757/shield?branch=master)](https://github.styleci.io/repos/146213757)
 
 ## Description
@@ -23,7 +23,7 @@ In the future I plan to add `tags` and other custom fields as well.
 You can install the package in to a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
-composer require mattmangoni/nova-blogify-tool
+composer require itsimplycom/nova-blogify-tool
 ```
 
 Next, you must register the card with Nova. This is typically done in the `tools` method of the `NovaServiceProvider`.
@@ -37,7 +37,7 @@ public function tools()
     return [
         // ...
 
-        new \Mattmangoni\NovaBlogifyTool\NovaBlogifyTool()
+        new \Its\NovaBlogifyTool\NovaBlogifyTool()
 }
 ```
 
@@ -45,8 +45,8 @@ public function tools()
 
 ```php
 
-use Mattmangoni\NovaBlogifyTool\Models\Post;
-use Mattmangoni\NovaBlogifyTool\Models\Category;
+use Its\NovaBlogifyTool\Models\Post;
+use Its\NovaBlogifyTool\Models\Category;
 
 Route::get('/', function () {
     return view('welcome');

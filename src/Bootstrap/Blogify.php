@@ -1,13 +1,13 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Bootstrap;
+namespace Its\NovaBlogifyTool\Bootstrap;
 
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Schema;
-use Mattmangoni\NovaBlogifyTool\Resources\Tag;
-use Mattmangoni\NovaBlogifyTool\Resources\Post;
-use Mattmangoni\NovaBlogifyTool\Resources\Comment;
-use Mattmangoni\NovaBlogifyTool\Resources\Category;
+use Its\NovaBlogifyTool\Resources\Tag;
+use Its\NovaBlogifyTool\Resources\Post;
+use Its\NovaBlogifyTool\Resources\Comment;
+use Its\NovaBlogifyTool\Resources\Category;
 
 class Blogify
 {

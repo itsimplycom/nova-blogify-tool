@@ -1,6 +1,6 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Traits;
+namespace Its\NovaBlogifyTool\Traits;
 
 use Illuminate\Database\Eloquent\Model;
 

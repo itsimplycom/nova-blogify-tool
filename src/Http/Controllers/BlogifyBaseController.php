@@ -1,9 +1,9 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Http\Controllers;
+namespace Its\NovaBlogifyTool\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
-use Mattmangoni\NovaBlogifyTool\Migrations\Migrator;
+use Its\NovaBlogifyTool\Migrations\Migrator;
 
 class BlogifyBaseController
 {

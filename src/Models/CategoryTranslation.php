@@ -1,10 +1,10 @@
 <?php
 
-namespace Mattmangoni\NovaBlogifyTool\Models;
+namespace Its\NovaBlogifyTool\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Mattmangoni\NovaBlogifyTool\Traits\Sluggable;
+use Its\NovaBlogifyTool\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class CategoryTranslation extends Model {
