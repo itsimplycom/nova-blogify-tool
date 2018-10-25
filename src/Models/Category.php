@@ -2,43 +2,43 @@
 
 namespace Mattmangoni\NovaBlogifyTool\Models;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Mattmangoni\NovaBlogifyTool\Traits\Sluggable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Category extends Model
-{
-    use Sluggable;
+class Category extends Model {
+	use Translatable, Sluggable;
 
-	public function getTable()
-	{
-		return config('nova-blogify.table_prefix').parent::getTable();
-    }
+	public function getTable() {
+		return config( 'nova-blogify.table_prefix' ) . parent::getTable();
+	}
+
+
+	public $translationModel = 'Mattmangoni\NovaBlogifyTool\Models\CategoryTranslation';
 
 	/**
-     * Model fillable fields.
-     * @var array
-     */
-    protected $fillable = [
-        'name',
-        'description',
-    ];
+	 * Model translated fields.
+	 * @var array
+	 */
+	protected $translatedAttributes = [
+		'name',
+		'description',
+	];
 
-    /**
-     * @return HasMany
-     */
-    public function posts(): HasMany
-    {
-        return $this->hasMany(Post::class);
-    }
+	/**
+	 * @return HasMany
+	 */
+	public function posts(): HasMany {
+		return $this->hasMany( Post::class );
+	}
 
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
+	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName() {
+		return 'slug';
+	}
 }

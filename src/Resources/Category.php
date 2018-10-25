@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Markdown;
+use Its\Nova\Translatable\Translatable;
 
 class Category extends Resource
 {
@@ -46,11 +47,15 @@ class Category extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
-            Text::make('Name')
-                ->rules(['required', 'string'])
-                ->sortable(),
-            Markdown::make('Description'),
+	        Text::make('Slug')
+	            ->hideWhenCreating()
+	            ->sortable()
+	            ->rules(['required']),
+
+	        Translatable::make('Name')
+                ->rules(['required']),
+
+	        Translatable::make('Description')->trix(),
             HasMany::make('Posts'),
         ];
     }

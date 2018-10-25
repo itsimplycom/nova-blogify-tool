@@ -3,6 +3,7 @@
 namespace Mattmangoni\NovaBlogifyTool\Resources;
 
 use App\Nova\Resource;
+use Its\Nova\Translatable\Translatable;
 use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
@@ -54,7 +55,10 @@ class Post extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make()->sortable(),
+	        Text::make('Slug')
+	            ->hideWhenCreating()
+	            ->sortable()
+	            ->rules(['required']),
 
             BelongsTo::make('Author', 'author', config('nova-blogify.resources.users.resource'))
                 ->sortable()
@@ -71,13 +75,12 @@ class Post extends Resource
                 ->sortable()
                 ->rules(['required']),
 
-            Text::make('Title')
-                ->sortable()
+            Translatable::make('Title')
                 ->rules(['required']),
 
-            Textarea::make('Summary')->hideFromIndex(),
+	        Translatable::make('Summary')->hideFromIndex()->trix(),
 
-            Markdown::make('Body')->rules(['required', 'string']),
+	        Translatable::make('Body')->rules(['required'])->trix(),
 
             Boolean::make('Featured')->sortable(),
 

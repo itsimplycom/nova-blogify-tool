@@ -3,24 +3,23 @@
 namespace Mattmangoni\NovaBlogifyTool\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
-class Comment extends Model {
-	use SoftDeletes;
+class TagTranslation extends Model {
 
 	public function getTable() {
 		return config( 'nova-blogify.table_prefix' ) . parent::getTable();
 	}
+
 
 	/**
 	 * Fillable properties.
 	 * @var array
 	 */
 	protected $fillable = [
-		'post_id',
-		'user_id',
-		'body',
+		'name',
+		'description',
 	];
 
 	/**
@@ -28,9 +27,8 @@ class Comment extends Model {
 	 * @var array
 	 */
 	protected $casts = [
-		'post_id' => 'integer',
-		'user_id' => 'integer',
-		'body'    => 'string',
+		'name'        => 'string',
+		'description' => 'string',
 	];
 
 	/**
@@ -40,20 +38,12 @@ class Comment extends Model {
 	protected $dates = [
 		'created_at',
 		'updated_at',
-		'deleted_at',
 	];
 
 	/**
 	 * @return BelongsTo
 	 */
-	public function post(): BelongsTo {
-		return $this->belongsTo( Post::class );
-	}
-
-	/**
-	 * @return BelongsTo
-	 */
-	public function author(): BelongsTo {
-		return $this->belongsTo( config( 'nova-blogify.user_model' ), 'user_id' );
+	public function tag(): BelongsTo {
+		return $this->belongsTo( Tag::class );
 	}
 }

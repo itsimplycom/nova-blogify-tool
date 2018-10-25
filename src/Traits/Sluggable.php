@@ -10,8 +10,7 @@ trait Sluggable
      * @var array
      */
     protected static $sluggableEvents = [
-        'saving',
-        'updating',
+        'creating',
     ];
 
     /**
