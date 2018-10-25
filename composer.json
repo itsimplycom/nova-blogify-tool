@@ -22,7 +22,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Mattmangoni\\NovaBlogifyTool\\ToolServiceProvider"
+                "Mattmangoni\\NovaBlogifyTool\\BlogifyToolServiceProvider"
             ]
         }
     },

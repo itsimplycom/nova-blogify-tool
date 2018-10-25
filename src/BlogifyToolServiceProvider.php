@@ -7,7 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Mattmangoni\NovaBlogifyTool\Bootstrap\Blogify;
 use Mattmangoni\NovaBlogifyTool\Http\Middleware\Authorize;
 
-class ToolServiceProvider extends ServiceProvider
+class BlogifyToolServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
