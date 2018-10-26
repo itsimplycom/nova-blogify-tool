@@ -34,31 +34,36 @@ trait Sluggable
 
     /**
      * Fetch sluggable field.
+     *
      * @param Model $model
+     *
      * @return string|null
      */
-	protected static function getSluggableField( Model $model ): ?string {
-		$table  = $model->getTable();
-		$prefix = config( 'nova-blogify.table_prefix' );
+    protected static function getSluggableField(Model $model): ?string
+    {
+        $table = $model->getTable();
+        $prefix = config('nova-blogify.table_prefix');
 
-		if ( substr( $table, 0, strlen( $prefix ) ) == $prefix ) {
-			$table = substr( $table, strlen( $prefix ) );
-		}
+        if (substr($table, 0, strlen($prefix)) == $prefix) {
+            $table = substr($table, strlen($prefix));
+        }
 
-		switch ( $table ) {
-			case 'posts':
-				return 'title';
-			case 'categories':
-				return 'name';
-			default:
-				return null;
-		}
-	}
+        switch ($table) {
+            case 'posts':
+                return 'title';
+            case 'categories':
+                return 'name';
+            default:
+                return null;
+        }
+    }
 
     /**
      * Generate a unique slug.
-     * @param string $fieldValue
+     *
+     * @param string   $fieldValue
      * @param int|null $oldId
+     *
      * @return string
      */
     protected static function generateUniqueSlug(string $fieldValue, int $oldId = null): string
@@ -83,7 +88,9 @@ trait Sluggable
     /**
      * Additional check for "updating" event.
      * Solves a problem when updating without changing sluggable field.
+     *
      * @param int|null $oldId
+     *
      * @return string
      */
     protected static function getAdditionalQueryString($oldId): string

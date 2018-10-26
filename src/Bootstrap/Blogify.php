@@ -2,20 +2,21 @@
 
 namespace Its\NovaBlogifyTool\Bootstrap;
 
-use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Schema;
-use Its\NovaBlogifyTool\Resources\BlogifyTag;
-use Its\NovaBlogifyTool\Resources\BlogifyPost;
-use Its\NovaBlogifyTool\Resources\BlogifyComment;
 use Its\NovaBlogifyTool\Resources\BlogifyCategory;
+use Its\NovaBlogifyTool\Resources\BlogifyComment;
+use Its\NovaBlogifyTool\Resources\BlogifyPost;
+use Its\NovaBlogifyTool\Resources\BlogifyTag;
+use Laravel\Nova\Nova;
 
 class Blogify
 {
     public static function isInstalled()
     {
-    	$prefix = config('nova-blogify.table_prefix');
+        $prefix = config('nova-blogify.table_prefix');
+
         return
-            Schema::hasTable($prefix. 'posts') &&
+            Schema::hasTable($prefix.'posts') &&
             Schema::hasTable($prefix.'categories') &&
             Schema::hasTable($prefix.'comments') &&
             Schema::hasTable($prefix.'tags') &&
@@ -24,7 +25,7 @@ class Blogify
 
     public static function injectToolResources()
     {
-        if (! self::isInstalled()) {
+        if (!self::isInstalled()) {
             return;
         }
 
