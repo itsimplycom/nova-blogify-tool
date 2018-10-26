@@ -10,7 +10,7 @@ use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Markdown;
 use Its\Nova\Translatable\Translatable;
 
-class Category extends Resource
+class BlogifyCategory extends Resource
 {
     /**
      * The model the resource corresponds to.

@@ -4,10 +4,10 @@ namespace Its\NovaBlogifyTool\Bootstrap;
 
 use Laravel\Nova\Nova;
 use Illuminate\Support\Facades\Schema;
-use Its\NovaBlogifyTool\Resources\Tag;
-use Its\NovaBlogifyTool\Resources\Post;
-use Its\NovaBlogifyTool\Resources\Comment;
-use Its\NovaBlogifyTool\Resources\Category;
+use Its\NovaBlogifyTool\Resources\BlogifyTag;
+use Its\NovaBlogifyTool\Resources\BlogifyPost;
+use Its\NovaBlogifyTool\Resources\BlogifyComment;
+use Its\NovaBlogifyTool\Resources\BlogifyCategory;
 
 class Blogify
 {
@@ -29,10 +29,10 @@ class Blogify
         }
 
         Nova::resources([
-            Category::class,
-            Post::class,
-            Comment::class,
-            Tag::class,
+            BlogifyCategory::class,
+            BlogifyPost::class,
+            BlogifyComment::class,
+            BlogifyTag::class,
         ]);
     }
 }

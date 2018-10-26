@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\BelongsTo;
 
-class Comment extends Resource
+class BlogifyComment extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -47,7 +47,7 @@ class Comment extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Post', 'post', Post::class)
+            BelongsTo::make('Post', 'post', BlogifyPost::class)
                 ->sortable()
                 ->rules('required'),
 

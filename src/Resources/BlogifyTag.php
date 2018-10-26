@@ -11,7 +11,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Markdown;
 use Laravel\Nova\Fields\BelongsToMany;
 
-class Tag extends Resource {
+class BlogifyTag extends Resource {
 	/**
 	 * The model the resource corresponds to.
 	 * @var string

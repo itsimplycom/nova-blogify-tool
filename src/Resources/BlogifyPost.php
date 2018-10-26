@@ -18,7 +18,7 @@ use Kingsley\NovaMediaLibrary\Fields\Image;
 use Its\NovaBlogifyTool\Metrics\Posts\NewPosts;
 use Its\NovaBlogifyTool\Metrics\Posts\PostsTrend;
 
-class Post extends Resource
+class BlogifyPost extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -67,11 +67,11 @@ class Post extends Resource
             Image::make('Image', config('nova-blogify.image_settings.collection'))
                 ->usingConversion('thumb'),
 
-            BelongsTo::make('Category', 'category', Category::class)
+            BelongsTo::make('Category', 'category', BlogifyCategory::class)
                 ->sortable()
                 ->rules(['required']),
 
-            HasMany::make('Comments', 'comments', Comment::class)
+            HasMany::make('Comments', 'comments', BlogifyComment::class)
                 ->sortable()
                 ->rules(['required']),
 
@@ -90,7 +90,7 @@ class Post extends Resource
                 return $this->published;
             })->exceptOnForms(),
 
-            BelongsToMany::make('Tags', 'tags', Tag::class)
+            BelongsToMany::make('Tags', 'tags', BlogifyTag::class)
                 ->searchable(true),
         ];
     }
