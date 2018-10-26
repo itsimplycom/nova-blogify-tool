@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Its\NovaBlogifyTool\Bootstrap\Blogify;
 
@@ -17,6 +16,5 @@ use Its\NovaBlogifyTool\Bootstrap\Blogify;
 Route::get('/check-installation', function () {
     return response()->json(['installation_status' => Blogify::isInstalled()], 200);
 });
-
 
 Route::delete('/reset-content', 'Its\NovaBlogifyTool\Http\Controllers\ResetController@execute');
