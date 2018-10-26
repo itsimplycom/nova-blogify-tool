@@ -11,6 +11,7 @@ class BlogifyToolServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
+     *
      * @return void
      */
     public function boot()
@@ -27,11 +28,12 @@ class BlogifyToolServiceProvider extends ServiceProvider
             $this->configPath() => config_path('nova-blogify.php'),
         ], 'nova-blogify-config');
 
-	    $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
      * Register the tool's routes.
+     *
      * @return void
      */
     protected function routes()
@@ -47,6 +49,7 @@ class BlogifyToolServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
+     *
      * @return void
      */
     public function register()

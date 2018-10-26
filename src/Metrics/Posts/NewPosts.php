@@ -3,14 +3,16 @@
 namespace Its\NovaBlogifyTool\Metrics\Posts;
 
 use Illuminate\Http\Request;
-use Laravel\Nova\Metrics\Value;
 use Its\NovaBlogifyTool\Models\Post;
+use Laravel\Nova\Metrics\Value;
 
 class NewPosts extends Value
 {
     /**
      * Calculate the value of the metric.
-     * @param  \Illuminate\Http\Request $request
+     *
+     * @param \Illuminate\Http\Request $request
+     *
      * @return mixed
      */
     public function calculate(Request $request)
@@ -20,15 +22,16 @@ class NewPosts extends Value
 
     /**
      * Get the ranges available for the metric.
+     *
      * @return array
      */
     public function ranges()
     {
         return [
-            1 => 'Since Yesterday',
-            7 => 'Since Last Week',
-            30 => 'Since Last Month',
-            90 => 'Since 3 Months Ago',
+            1   => 'Since Yesterday',
+            7   => 'Since Last Week',
+            30  => 'Since Last Month',
+            90  => 'Since 3 Months Ago',
             180 => 'Since 6 Months Ago',
             365 => 'Since Last Year',
         ];
@@ -36,7 +39,8 @@ class NewPosts extends Value
 
     /**
      * Determine for how many minutes the metric should be cached.
-     * @return  \DateTimeInterface|\DateInterval|float|int
+     *
+     * @return \DateTimeInterface|\DateInterval|float|int
      */
     public function cacheFor()
     {
@@ -45,6 +49,7 @@ class NewPosts extends Value
 
     /**
      * Get the URI key for the metric.
+     *
      * @return string
      */
     public function uriKey()
