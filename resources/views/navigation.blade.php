@@ -21,7 +21,7 @@
         <router-link :to="{
             name: 'index',
             params: {
-                resourceName: 'categories'
+                resourceName: 'blogify-categories'
             }
         }" class="text-white ml-8 no-underline dim">
             Categories
@@ -31,7 +31,7 @@
         <router-link :to="{
             name: 'index',
             params: {
-                resourceName: 'posts'
+                resourceName: 'blogify-posts'
             }
         }" class="text-white ml-8 no-underline dim">
             Posts
@@ -41,7 +41,7 @@
         <router-link :to="{
             name: 'index',
             params: {
-                resourceName: 'comments'
+                resourceName: 'blogify-comments'
             }
         }" class="text-white ml-8 no-underline dim">
             Comments
@@ -51,7 +51,7 @@
         <router-link :to="{
             name: 'index',
             params: {
-                resourceName: 'tags'
+                resourceName: 'blogify-tags'
             }
         }" class="text-white ml-8 no-underline dim">
             Tags
