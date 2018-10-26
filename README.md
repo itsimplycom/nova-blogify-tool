@@ -1,8 +1,10 @@
 # Nova Blogify Tool
 
-[![Latest Stable Version](https://poser.pugx.org/itsimplycom/nova-blogify-tool/v/stable)](https://packagist.org/packages/itsimplycom/nova-blogify-tool) 
+[![Latest Stable Version](https://poser.pugx.org/itsimplycom/nova-blogify-tool/v/stable)](https://packagist.org/packages/itsimplycom/nova-blogify-tool)
 [![Total Downloads](https://poser.pugx.org/itsimplycom/nova-blogify-tool/downloads)](https://packagist.org/packages/itsimplycom/nova-blogify-tool) 
-[![StyleCI](https://github.styleci.io/repos/146213757/shield?branch=master)](https://github.styleci.io/repos/146213757)
+[![Latest Unstable Version](https://poser.pugx.org/itsimplycom/nova-blogify-tool/v/unstable)](https://packagist.org/packages/itsimplycom/nova-blogify-tool)
+[![License](https://poser.pugx.org/itsimplycom/nova-blogify-tool/license)](https://packagist.org/packages/itsimplycom/nova-blogify-tool)
+[![StyleCI](https://github.styleci.io/repos/154296172/shield?branch=develop)](https://github.styleci.io/repos/154296172)
 
 ## Description
 
