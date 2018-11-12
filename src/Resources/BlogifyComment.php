@@ -4,13 +4,17 @@ namespace Its\NovaBlogifyTool\Resources;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Its\NovaBlogifyTool\Traits\BlogifyResource;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Markdown;
 
 class BlogifyComment extends Resource
 {
-    /**
+
+	use BlogifyResource;
+
+	/**
      * The model the resource corresponds to.
      *
      * @var string

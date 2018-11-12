@@ -5,10 +5,14 @@ namespace Its\NovaBlogifyTool\Resources;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Its\Nova\Translatable\Translatable;
+use Its\NovaBlogifyTool\Traits\BlogifyResource;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\Text;
 
 class BlogifyCategory extends Resource {
+
+	use BlogifyResource;
+
 	/**
 	 * The model the resource corresponds to.
 	 *

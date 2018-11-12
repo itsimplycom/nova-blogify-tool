@@ -5,12 +5,15 @@ namespace Its\NovaBlogifyTool\Resources;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Its\Nova\Translatable\Translatable;
+use Its\NovaBlogifyTool\Traits\BlogifyResource;
 use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
 
 class BlogifyTag extends Resource
 {
+	use BlogifyResource;
+
     /**
      * The model the resource corresponds to.
      *
@@ -63,7 +66,7 @@ class BlogifyTag extends Resource
 
             Translatable::make('Description'),
 
-            BelongsToMany::make('Posts'),
+            BelongsToMany::make('BlogifyPost', 'posts'),
         ];
     }
 

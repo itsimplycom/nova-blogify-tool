@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Its\Nova\Translatable\Translatable;
 use Its\NovaBlogifyTool\Metrics\Posts\NewPosts;
 use Its\NovaBlogifyTool\Metrics\Posts\PostsTrend;
+use Its\NovaBlogifyTool\Traits\BlogifyResource;
 use Kingsley\NovaMediaLibrary\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
@@ -17,7 +18,10 @@ use Laravel\Nova\Fields\Text;
 
 class BlogifyPost extends Resource
 {
-    /**
+
+	use BlogifyResource;
+
+	/**
      * The model the resource corresponds to.
      *
      * @var string
