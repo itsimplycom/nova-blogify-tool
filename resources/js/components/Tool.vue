@@ -9,44 +9,47 @@
                 <p class="mt-6 text-center"><code>Run `php artisan migrate` to start blogging</code></p>
             </div>
             <div v-else class="mb-8">
-                <button class="flex justify-center text-center btn btn-danger px-6 py-2 rounded" @click="resetInstallation">Reset blog content</button>
+                <button class="flex justify-center text-center btn btn-danger px-6 py-2 rounded"
+                        @click="resetInstallation">Reset blog content
+                </button>
             </div>
         </card>
     </div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    this.checkInstallation();
-  },
+    export default {
+        mounted() {
+            this.checkInstallation();
+        },
 
-  data() {
-    return {
-      installed: false
+        data() {
+            return {
+                installed: false
+            };
+        },
+        methods: {
+            checkInstallation() {
+                Nova.request()
+                    .get("/nova-vendor/nova-blogify-tool/check-installation")
+                    .then(response => (this.installed = response.data.installation_status))
+                    .catch(() => (this.installed = false));
+            },
+
+            resetInstallation() {
+                if (confirm("Are you sure? This will delete all your blog content!")) {
+
+                    Nova.request()
+                        .delete("/nova-vendor/nova-blogify-tool/reset-content")
+                        .then(response => {
+                            this.$toasted.show(response.data.message, {type: "success"});
+                            this.checkInstallation();
+                        })
+                        .catch(error => {
+                            this.$toasted.show(error.response.data.message, {type: "error"});
+                        });
+                }
+            }
+        }
     };
-  },
-    methods: {
-    checkInstallation() {
-      Nova.request()
-        .get("/nova-vendor/nova-blogify-tool/check-installation")
-        .then(response => (this.installed = response.data.installation_status))
-        .catch(() => (this.installed = false));
-    },
-
-    resetInstallation() {
-      confirm("Are you sure? This will delete all your blog content!");
-
-      Nova.request()
-        .delete("/nova-vendor/nova-blogify-tool/reset-content")
-        .then(response => {
-          this.$toasted.show(response.data.message, { type: "success" });
-          this.checkInstallation();
-        })
-        .catch(error => {
-          this.$toasted.show(error.response.data.message, { type: "error" });
-        });
-    }
-  }
-};
 </script>
